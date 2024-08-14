@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 import AuthButton from '../components/AuthButton';
 import ThemeToggle from '../components/ThemeToggle';
