@@ -1,19 +1,21 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import AuthButton from '../components/AuthButton';
-import ThemeToggle from '../components/ThemeToggle';
+import AuthButton from './AuthButton';
+import ThemeToggle from './ThemeToggle';
 
 const LoginForm: React.FC = () => {
     const router = useRouter();
 
     const handleGoogleLogin = async () => {
-      try {
-        const response = await axios.post('/api/google-login');
-        router.push('/onebox'); 
-    } catch (error) {
-        console.error('Login failed:', error);
-    }
+        try {
+            const response = await axios.post('/api/google-login');
+            if (response.status === 200) {
+                router.push('/onebox'); // Redirect to the Onebox page after successful login
+            }
+        } catch (error) {
+            console.error('Login failed:', error);
+        }
     };
 
     return (
