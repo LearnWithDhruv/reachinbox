@@ -5,11 +5,11 @@ import EmailDetail from './EmailDetail';
 import Editor from './Editor';
 import ThemeToggle from './ThemeToggle';
 import KeyboardShortcuts from './KeyboardShortcuts';
-import { Email } from '../types/types'; // Import the Email type
+import { Email } from '../types/types';
 
 const Onebox: React.FC = () => {
-    const [emails, setEmails] = useState<Email[]>([]); // Type emails as an array of Email objects
-    const [selectedEmail, setSelectedEmail] = useState<Email | null>(null); // selectedEmail can be an Email or null
+    const [emails, setEmails] = useState<Email[]>([]); 
+    const [selectedEmail, setSelectedEmail] = useState<Email | null>(null);
     const [isReplying, setIsReplying] = useState(false);
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const Onebox: React.FC = () => {
         try {
             const response = await axios.get(`/api/fetch-email?thread_id=${id}`);
             setSelectedEmail(response.data);
-            setIsReplying(false); // Reset replying state when selecting a new email
+            setIsReplying(false); 
         } catch (error) {
             console.error('Error fetching email:', error);
         }
